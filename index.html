@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(fundo3.jpg);
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-attachment: fixed;
+            background-size: cover;
+
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: static;
+            margin: auto;
+            background-color: rgb(255, 255, 255);
+            padding: 5px;
+            border-bottom: 1px solid black;
+        }
+        
+        #creators {
+            width: 40px;
+            margin-left: 10px;
+        }
+
+
+
+
+
+
+
+
+        .container {
+            min-width: 350px;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            margin-top: 20px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0px 15px 10px 10px black;
+        }
+
+        #titulo-sorteio {
+            font-size: 35px;
+            font-family: 'Poppins';
+            font-weight: 700;
+            line-height: 1.3;
+            color: #2d2d2d;
+        }
+
+        #descricao-sorteio {
+            font-family: 'Poppins';
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        #container-sorteios {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-sorteio-box {
+            background-color: rgba(255, 255, 255, 0.696);
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            outline: 1px solid black;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            transition: background-color 1s ease-out, outline 1s ease-out, margin .3s ease;
+        }
+
+        .container-sorteio-box:hover {
+            background-color: #bdffff;
+            outline: 1px solid black;
+            margin-left: 5px;
+            margin-right: 5px;
+
+        }
+
+        .container-sorteio-box img {
+            width: 60px;
+            margin-right: 25px;
+        }
+
+        .container-sorteio-box h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .seta {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease-in-out; /* Animação suave ao expandir */
+            margin: 5px;
+            margin-bottom: 40px;
+        }
+
+        .container-sorteio-box.expandido .seta {
+            transform: rotate(225deg); /* Rotação para baixo quando expandido */
+        }
+
+        .aberto {
+            display: block;
+            max-height: 0; /* Inicialmente escondido */
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out; /* Animação de expansão */
+        }
+
+        .container-sorteio-box.expandido .aberto {
+            max-height: 500px; /* Altura para o conteúdo expandido */
+        }
+
+        #container-1 {
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 187, 227));
+        }
+
+
+
+
+        #titulo-video {
+            font-size: 35px;
+            font-family: 'Poppins';
+            font-weight: 700;
+            line-height: 1.3;
+            color: #2d2d2d;
+            margin-top: 20px;
+        }
+
+        #descricao-video {
+            font-family: 'Poppins';
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        #container-videos {
+            background-color: #bdffff;
+            margin-top: 10px;
+            border-radius: 25px;
+            outline: 1px solid black;
+            font-family: 'Poppins';
+        }
+
+        .container-videos-box {
+            background-color: rgb(255, 255, 255);
+            margin: 15px;
+            border: 1px solid black;
+            border-radius: 10px;
+            outline: 1px solid transparent;
+            transition: background-color 1s ease, outline .5s ease, margin .5s ease;
+        }
+
+        .container-videos-box a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-decoration: none;
+            color: #2b2b2b;
+        }
+
+        .container-videos-box:hover {
+            background-color: rgba(255, 255, 255, 0.534);
+            outline: 1px solid black;
+            margin-left: 14px;
+            margin-right: 14px;
+        }
+
+        .container-videos-box img {
+            width: 180px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .container-videos-box a p {
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        #container-2 {
+            background-color: white;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+        }
+
+
+
+
+
+        #titulo-membro {
+            margin-top: 50px;
+            font-size: 35px;
+            font-family: 'Poppins';
+            font-weight: 700;
+            line-height: 1.3;
+            color: #2d2d2d;
+            margin-top: 20px;
+        }
+
+        #descricao-membro {
+            font-family: 'Poppins';
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        #link-membro {
+            text-align: center;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            background-color: #2b2b2b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            outline: 1px solid transparent;
+            transition: background-color 1s ease, outline 1s ease, margin 1s ease;
+        }
+
+        #link-membro:hover {
+            background-color: #646464;
+            outline: 1px solid black;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #container-3 {
+        background-color: rgb(255, 233, 233);
+        }
+
+
+
+
+
+        #titulo-gratis {
+            margin-top: 20px;
+            font-size: 35px;
+            font-family: 'Poppins';
+            font-weight: 700;
+            line-height: 1.3;
+            color: #2d2d2d;
+            margin-top: 20px;
+        }
+
+        #descricao-gratis {
+            font-family: 'Poppins';
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        #container-gratis {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-gratis-box {
+            background-color: rgba(255, 255, 255, 0.696);
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            outline: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            transition: background-color 1s ease-out, outline 1s ease-out, margin .3s ease;
+        }
+
+        .container-gratis-box:hover {
+            background-color: #dedede;
+            outline: 1px solid black;
+            margin-left: 1px;
+            margin-right: 1px;
+
+        }
+
+        .container-gratis-box img {
+            width: 110px;
+            margin-right: 25px;
+        }
+
+        .container-gratis-box h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        #container-4 {
+            border-top: 1px solid black;
+            background-color: rgb(255, 255, 228);
+        }
+
+
+
+
+
+
+
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+            bottom: 0;
+            margin-left: 0;
+            width: 100%;
+            height: 100px;
+        }
+
+        #container-final {
+            text-align: center;
+            color: white;
+            margin-left: 10px;
+        }
+
+        #titulo-final {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .link {
+            width: 40px;
+            margin: auto;
+            padding: 5px;
+        }
+
+        #horarios {
+            color: white;
+            margin-right: 10px;
+        }
+
+        #horarios h1 {
+            font-size: 15px;
+        }
+
+        #horarios p {
+            font-size: 12px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="banner.jpg" alt="">
+        <img src="https://creators.supercell.com/img/creators-logo-badge.322e15ce.svg" alt="" id="creators">
+    </header>
+
+    <div class="container" id="container-1">
+        <h1 id="titulo-sorteio">Nossos sorteios</h1>
+        <p id="descricao-sorteio">Todo mês realizamos <strong>4 sorteios</strong>, eles acontecem no nosso canal do 
+            <strong>YouTube</strong>, no nosso <strong>Discord</strong> e nos nossos <strong>Clubes do Brawl Stars</strong>!
+        </p>
+        <div id="container-sorteios">
+
+
+            <div class="container-sorteio-box" onclick="leiaMais()">
+                <div>
+                    <span class="fechado">
+                        <h1>Max Angelical</h1>
+                        <p>Plataforma: Vídeo do Youtube</p>
+                        <p>Status: Encerrado</p>
+                    </span>
+                    <span class="aberto">
+                        <p>Vencedor: Kaique87</p>
+                        <p>Início: 27/10/2024</p>
+                        <p>Término: 06/11/2024</p>
+                    </span>
+                </div>
+                <div>
+                    <img src="maxAngelical.png" alt="">
+                    <span class="seta"></span>
+                </div>
+            </div>
+
+
+            <div class="container-sorteio-box" onclick="leiaMais()">
+                <div>
+                    <span class="fechado">
+                        <h1>Max Angelical</h1>
+                        <p>Plataforma: Live do YouTube</p>
+                        <p>Status: Encerrado</p>
+                    </span>
+                    <span class="aberto">
+                        <p>Vencedor: Caneta Azul</p>
+                        <p>Início: 16/11/2024</p>
+                        <p>termino: 16/11/2024</p>
+                    </span>
+                </div>
+                <div>
+                    <img src="maxAngelical.png" alt="">
+                    <span class="seta"></span>
+                </div>
+            </div>
+
+
+            <div class="container-sorteio-box" onclick="leiaMais()">
+                <div>
+                    <span class="fechado">
+                        <h1>Max Angelical</h1>
+                        <p>Plataforma: Discord</p>
+                        <p>Status: Encerrado</p>
+                    </span>
+                    <span class="aberto">
+                        <p>Vencedor: Brawler Ninjago</p>
+                        <p>Início: 27/10/2024</p>
+                        <p>termino: 06/11/2024</p>
+                    </span>
+                </div>
+                <div>
+                    <img src="maxAngelical.png" alt="">
+                    <span class="seta"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container" id="container-2">
+        <h1 id="titulo-video">Nossos Vídeos</h1>
+        <p id="descricao-video">Nossos vídeos tem o objetivo de <strong>informar</strong>, 
+        <strong>ajudar</strong> e <strong>divertir</strong> os jogadores de 
+        <strong>Brawl Stars</strong>.</p>
+
+        <div id="container-videos">
+
+            <div class="container-videos-box">
+                <a href="https://youtu.be/oi95wHSJ6-0?si=xS6UNFpz3Ej1KoA3" target="_blank">
+                    <img src="video3.jpg" alt="">
+                    <p>Como será o <strong>SHADE</strong> o <strong>NOVO BRAWLER</strong>
+                         do <strong>BRAWL STARS</strong>!</p>
+                </a>
+            </div>
+
+            <div class="container-videos-box">
+                <a href="https://youtu.be/7tFz9qW-VMY" target="_blank">
+                    <img src="video4.png" alt="">
+                    <p>Como <strong>PEGAR 1000 TROFÉUS</strong> com <strong>QUALQUER BRAWLER</strong> 
+                        no <strong>BRAWL STARS</strong>!</p>
+                </a>
+            </div>
+
+            <div class="container-videos-box">
+                <a href="https://youtu.be/11hnz0JRZVI?si=E7WBu87Nu29JArP6" target="_blank">
+                    <img src="video1.png" alt="">
+                    <p>Como <strong>DAR</strong> o <strong>BRAWL PASS</strong> de
+                         presente no <strong>BRAWL STARS</strong>!</p>
+                </a>
+            </div>
+
+            <div class="container-videos-box">
+                <a href="https://youtu.be/QwcPwRTGQw8?si=GPREPpSrqr_35Mj3" target="_blank">
+                    <img src="video2.jpg" alt="">
+                    <p>Como <strong>TROCAR</strong> de <strong>EMAIL</strong> 
+                        no <strong>BRAWL STARS</strong>!</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container" id="container-3">
+        <h1 id="titulo-membro">Seja membro</h1>
+        <p id="descricao-membro">Torne-se <strong>membro</strong> do nosso canal do 
+        <strong>YouTube</strong> e concorra a um <strong>BRAWL PASS PLUS</strong> todo 
+        mês, é isso mesmo! Fazemos <strong>sorteios mensais</strong> pros membros do nosso canal, para 
+        fazer parte basta ir ao nosso canal e aderir ao plano que custa apenas <strong>R$1,99/mês</strong>.</p>
+
+        <a href="https://www.youtube.com/channel/UCOwzHp-dc2ab8dJ3-UeRUeQ/join" target="_blank" id="link-membro"> Clique aqui para saber mais</a>
+    </div>
+
+
+
+    <div class="container" id="container-4">
+        <h1 id="titulo-gratis">Itens grátis</h1>
+        <p id="descricao-gratis">Links para <strong>itens grátis</strong> dentro do jogo, como ícones de perfil, 
+        reações e sprays.</p>
+
+        <div id="container-gratis">
+            <div class="container-gratis-box" onclick="leiaMais()">
+                <div>
+                    <h1>Ícone do Spike</h1>
+                    <p>Link: <a href="brawlstars://action=voucher&code=ab9cf7c2-45f8-4012-ad38-dfe8b1747c3b" target="_blank">Clique aqui</a></p>
+                    <p>Status: Em funcionamento</p>
+                </div>
+                <div>
+                    <img src="iconeSpike.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div id="container-final">
+            <h1 id="titulo-final">Nossas redes sociais</h1>
+            <div id="redes-sociais">
+                <a href="https://www.youtube.com/@the_winners23" target="_blank"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/480/small_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt="" class="link"></a>
+                <a href="https://discord.gg/K28fDYbXun" target="_blank"><img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" alt="" class="link"></a>
+                <a href="#"><img src="https://img.icons8.com/?size=512&id=118640&format=png" alt="" class="link"></a>
+            </div>
+        </div>
+        
+        <div id="horarios">
+            <h1>Horários:</h1>
+            <p>Shorts - Todo dia</p>
+            <p>Lives - Quando der vontade</p>
+            <p>Vídeos - Todo domingo</p>
+        </div>
+    </footer>
+
+    <script>
+        function leiaMais() {
+            var container = event.currentTarget; // A div que foi clicada
+            container.classList.toggle('expandido'); // Alterna a classe para ativar a animação
+        }
+    </script>
+</body>
+</html>
